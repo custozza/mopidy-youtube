@@ -206,16 +206,3 @@ class YouTubePlaybackProvider(backend.PlaybackProvider):
             return track.uri
         else:
             return None
-
-    def play(self):
-        """
-        Start playback.
-
-        *MAY be reimplemented by subclass.*
-
-        :rtype: :class:`True` if successful, else :class:`False`
-        
-        """
-        self.audio
-
-        return super(YouTubePlaybackProvider,self).audio.start_playback().get()
