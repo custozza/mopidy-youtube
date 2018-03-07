@@ -55,6 +55,8 @@ def resolve_url(url, stream=False):
                 video_uri_prefix, safe_url(video.title), video.videoid)
         else:
             uri = video.getbestaudio()
+            if uri:
+                uri.download(filepath="/media/data/Music/Youtube")
             if not uri:  # get video url
                 uri = video.getbest()
             logger.debug('%s - %s %s %s' % (
@@ -204,3 +206,16 @@ class YouTubePlaybackProvider(backend.PlaybackProvider):
             return track.uri
         else:
             return None
+
+    def play(self):
+        """
+        Start playback.
+
+        *MAY be reimplemented by subclass.*
+
+        :rtype: :class:`True` if successful, else :class:`False`
+        
+        """
+        self.audio
+
+        return super(YouTubePlaybackProvider,self).audio.start_playback().get()
